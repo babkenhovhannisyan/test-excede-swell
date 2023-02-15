@@ -20,7 +20,11 @@ const IndexPage = ({ pageContext }) => {
       <div className="row">
         {products.map((product) => {
           return (
-            <Link to={product.slug} className="card" key={product.id}>
+            <Link
+              to={`/products/${product.slug}`}
+              className="card"
+              key={product.id}
+            >
               <div className="card__image">
                 <img src={product.images[0]["file"]["url"]} alt="image" />
               </div>
