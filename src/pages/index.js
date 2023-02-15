@@ -1,6 +1,6 @@
 import React from "react";
 import { getProducts } from "../../lib/swell/products";
-import "./style.scss";
+import "./style.css";
 
 //execute in server-side only
 export async function getStaticProps() {

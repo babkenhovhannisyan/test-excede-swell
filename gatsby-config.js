@@ -11,5 +11,5 @@ module.exports = {
     title: `Test Excede Products`,
     siteUrl: `https://www.yourdomain.tld`,
   },
-  plugins: ["gatsby-plugin-sass", "gatsby-plugin-static-props"],
+  plugins: ["gatsby-plugin-static-props"],
 };
