@@ -1,6 +1,6 @@
 import React from "react";
+import { Link } from "gatsby";
 import { getProducts } from "../../lib/swell/products";
-import "./style.css";
 
 //execute in server-side only
 export async function getStaticProps() {
@@ -12,9 +12,7 @@ export async function getStaticProps() {
 }
 
 const IndexPage = ({ pageContext }) => {
-  const products = pageContext?.products.results || [];
-
-  console.log("products", products);
+  const products = pageContext?.products?.results || [];
 
   return (
     <main>
@@ -22,7 +20,7 @@ const IndexPage = ({ pageContext }) => {
       <div className="row">
         {products.map((product) => {
           return (
-            <div className="card" key={product.id}>
+            <Link to={product.slug} className="card" key={product.id}>
               <div className="card__image">
                 <img src={product.images[0]["file"]["url"]} alt="image" />
               </div>
@@ -33,10 +31,12 @@ const IndexPage = ({ pageContext }) => {
               </div>
               <hr />
               <div className="info">
-                <span>$130</span>
+                <span>
+                  {product.price} {product.currency}
+                </span>
                 <button>Buy Now</button>
               </div>
-            </div>
+            </Link>
           );
         })}
       </div>
